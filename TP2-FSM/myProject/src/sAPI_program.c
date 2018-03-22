@@ -10,9 +10,10 @@
 #include <stdio.h>
 /*==================[definiciones y macros]==================================*/
 #define LONGDELAY 1000 //Mayor delay
+#define MEDIUMDELAY 40 //Delay intermedio
 #define SHORTDELAY 20 //Menor delay
-#define NUMLEDS 3 //Número de leds que participan del blink
-#define NUMPER 2 //Número de períodos de blink
+#define NUMLEDS 6 //Número de leds que participan del blink
+#define NUMPER 3 //Número de períodos de blink
 
 //Delay de estados: Non delay para cuando no hay delay y DELAY# para # ms.
 #define NONDELAY 0
@@ -94,11 +95,11 @@ int main( void ){
 
     //Variables para delay
    uint16_t delayTime = SHORTDELAY; //Variable de tiempo de delay
-   uint16_t delayOptions[] = {SHORTDELAY, LONGDELAY}; //Array de posibles delays
+   uint16_t delayOptions[] = {SHORTDELAY, MEDIUMDELAY, LONGDELAY}; //Array de posibles delays
    uint8_t delayIndex = 0; //Indice del delayOptions[]
 
    //Variables para cambio de leds
-   gpioMap_t leds[] = {LEDR, LED3, LEDB}; //Nos indica los leds que participan del blink
+   gpioMap_t leds[] = {LEDR, LEDG, LEDB, LED1, LED2, LED3}; //Nos indica los leds que participan del blink
    gpioMap_t led = LEDR; //Nos indica que led está blinkeando actualmente
    uint8_t ledIndex = 0; //Indice del array de leds que participan del blink
    // ---------- REPETIR POR SIEMPRE --------------------------

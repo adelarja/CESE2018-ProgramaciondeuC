@@ -8430,7 +8430,7 @@ END GROUP
  *(.rodata.$Flash2*)
  *(.rodata.$MFlashB512*)
 
-.text           0x1a000000     0x2f50
+.text           0x1a000000     0x2f5c
  FILL mask 0xff
                 0x1a000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -8439,19 +8439,19 @@ END GROUP
                 0x1a000114                . = ALIGN (0x4)
                 0x1a000114                __section_table_start = .
                 0x1a000114                __data_section_table = .
-                0x1a000114        0x4 LONG 0x1a002f58 LOADADDR (.data)
+                0x1a000114        0x4 LONG 0x1a002f64 LOADADDR (.data)
                 0x1a000118        0x4 LONG 0x10000000 ADDR (.data)
                 0x1a00011c        0x4 LONG 0x5c SIZEOF (.data)
-                0x1a000120        0x4 LONG 0x1a002f58 LOADADDR (.data_RAM2)
+                0x1a000120        0x4 LONG 0x1a002f64 LOADADDR (.data_RAM2)
                 0x1a000124        0x4 LONG 0x10080000 ADDR (.data_RAM2)
                 0x1a000128        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x1a00012c        0x4 LONG 0x1a002f58 LOADADDR (.data_RAM3)
+                0x1a00012c        0x4 LONG 0x1a002f64 LOADADDR (.data_RAM3)
                 0x1a000130        0x4 LONG 0x20000000 ADDR (.data_RAM3)
                 0x1a000134        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x1a000138        0x4 LONG 0x1a002f58 LOADADDR (.data_RAM4)
+                0x1a000138        0x4 LONG 0x1a002f64 LOADADDR (.data_RAM4)
                 0x1a00013c        0x4 LONG 0x20008000 ADDR (.data_RAM4)
                 0x1a000140        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x1a000144        0x4 LONG 0x1a002f58 LOADADDR (.data_RAM5)
+                0x1a000144        0x4 LONG 0x1a002f64 LOADADDR (.data_RAM5)
                 0x1a000148        0x4 LONG 0x2000c000 ADDR (.data_RAM5)
                 0x1a00014c        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x1a000150                __data_section_table_end = .
@@ -8537,239 +8537,239 @@ END GROUP
                 0x1a000300                PROVIDE (__CRP_WORD_END__, .)
                 0x00000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
  *(.text*)
- .text          0x1a000300      0x1ac myProject/out/myProject/src/sAPI_program.o
+ .text          0x1a000300      0x1b0 myProject/out/myProject/src/sAPI_program.o
                 0x1a000300                getOut
                 0x1a000310                getWork
                 0x1a000324                delayStart
                 0x1a00034c                toggleDelayed
                 0x1a000364                main
- .text          0x1a0004ac      0x1b8 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
-                0x1a0004ac                uartConfig
-                0x1a000510                uartReadByte
-                0x1a000554                uartWriteByte
-                0x1a000584                waitForReceiveStringOrTimeout
-                0x1a000608                waitForReceiveStringOrTimeoutBlocking
-                0x1a000644                uartWriteString
-                0x1a00065c                UART2_IRQHandler
-                0x1a000660                UART3_IRQHandler
- .text          0x1a000664        0x4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_datatypes.o
-                0x1a000664                sAPI_NullFuncPtr
- .text          0x1a000668      0x2e8 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
-                0x1a000670                Timer_Init
-                0x1a00077c                Timer_DeInit
-                0x1a0007bc                Timer_microsecondsToTicks
-                0x1a0007c4                Timer_EnableCompareMatch
-                0x1a0007fc                Timer_DisableCompareMatch
-                0x1a000840                Timer_SetCompareMatch
-                0x1a000858                TIMER0_IRQHandler
-                0x1a000894                TIMER1_IRQHandler
-                0x1a0008d0                TIMER2_IRQHandler
-                0x1a000910                TIMER3_IRQHandler
- .text          0x1a000950      0x164 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_delay.o
-                0x1a000950                delayInaccurate
-                0x1a0009a4                delayInaccurateUs
-                0x1a000a00                delay
-                0x1a000a38                delayConfig
-                0x1a000a58                delayRead
-                0x1a000a98                delayWrite
- .text          0x1a000ab4       0xb4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_tick.o
-                0x1a000ab4                tickConfig
-                0x1a000b2c                tickRead
-                0x1a000b38                tickWrite
-                0x1a000b44                SysTick_Handler
- .text          0x1a000b68       0x90 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
-                0x1a000b68                printSetUart
-                0x1a000b6c                printConfigUart
-                0x1a000b7c                printString
-                0x1a000b84                printEnter
-                0x1a000b94                printIntFormat
-                0x1a000bb8                printUIntFormat
-                0x1a000bdc                printHex
- .text          0x1a000bf8       0xf0 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_board.o
-                0x1a000bf8                boardConfig
- .text          0x1a000ce8      0x1a4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
-                0x1a000ce8                int64ToString
-                0x1a000d74                uint64ToString
-                0x1a000de8                uintToAsciiHex
- .text          0x1a000e8c      0x290 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
-                0x1a000eb8                gpioConfig
-                0x1a001054                gpioWrite
-                0x1a0010ac                gpioRead
-                0x1a001104                gpioToggle
- .text          0x1a00111c      0x208 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
-                0x1a00115c                Board_UART_Init
-                0x1a001170                Board_Debug_Init
-                0x1a001198                Board_UARTPutChar
-                0x1a0011ac                Board_UARTGetChar
-                0x1a0011c8                Board_UARTPutSTR
-                0x1a0011dc                Board_LED_Set
-                0x1a001204                Board_LED_Test
-                0x1a001234                Board_LED_Toggle
-                0x1a00124c                Board_ENET_GetMacADDR
-                0x1a001270                Board_Init
-                0x1a001298                Board_I2C_Init
-                0x1a0012bc                Board_SDMMC_Init
-                0x1a0012e8                Board_SSP_Init
-                0x1a001310                Board_DAC_Init
- .text          0x1a001324       0x1c myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
-                0x1a001324                SystemInit
- .text          0x1a001340       0xb4 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
-                0x1a001340                Board_SetupMuxing
-                0x1a001374                Board_SetupClocking
-                0x1a0013e8                Board_SystemInit
- .text          0x1a0013f4      0x3dc myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
-                0x1a001468                Chip_UART_Init
-                0x1a0014b8                Chip_UART_DeInit
-                0x1a0014d4                Chip_UART_Send
-                0x1a0014f8                Chip_UART_CheckBusy
-                0x1a001508                Chip_UART_SendBlocking
-                0x1a00152c                Chip_UART_Read
-                0x1a001550                Chip_UART_ReadBlocking
-                0x1a001574                Chip_UART_SetBaud
-                0x1a0015b8                Chip_UART_RXIntHandlerRB
-                0x1a0015dc                Chip_UART_TXIntHandlerRB
-                0x1a001618                Chip_UART_SendRB
-                0x1a00165c                Chip_UART_ReadRB
-                0x1a00166c                Chip_UART_IRQRBHandler
-                0x1a0016a4                Chip_UART_SetBaudFDR
-                0x1a00178c                Chip_UART_GetABEOStatus
-                0x1a001798                Chip_UART_ABCmd
- .text          0x1a0017d0      0x184 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
-                0x1a0017d0                RingBuffer_Init
-                0x1a0017e0                RingBuffer_Insert
-                0x1a001810                RingBuffer_InsertMult
-                0x1a0018a0                RingBuffer_Pop
-                0x1a0018d0                RingBuffer_PopMult
- .text          0x1a001954       0xc4 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
-                0x1a001988                Chip_USB0_Init
-                0x1a0019bc                Chip_USB1_Init
-                0x1a001a04                SystemCoreClockUpdate
- .text          0x1a001a18      0x8e8 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
-                0x1a001c30                Chip_Clock_EnableCrystal
-                0x1a001c7c                Chip_Clock_DisableCrystal
-                0x1a001c8c                Chip_Clock_SetDivider
-                0x1a001ce0                Chip_Clock_GetDividerSource
-                0x1a001cfc                Chip_Clock_GetDividerDivisor
-                0x1a001d18                Chip_Clock_GetClockInputHz
-                0x1a001dd0                Chip_Clock_CalcMainPLLValue
-                0x1a001e50                Chip_Clock_SetupMainPLLMult
-                0x1a001eec                Chip_Clock_SetupMainPLLHz
-                0x1a001fa8                Chip_Clock_GetMainPLLHz
-                0x1a002034                Chip_Clock_SetBaseClock
-                0x1a002078                Chip_Clock_GetBaseClockOpts
-                0x1a0020ac                Chip_Clock_EnableBaseClock
-                0x1a0020c4                Chip_Clock_DisableBaseClock
-                0x1a0020dc                Chip_Clock_IsBaseClockEnabled
-                0x1a0020fc                Chip_Clock_GetBaseClock
-                0x1a002120                Chip_Clock_GetBaseClocktHz
-                0x1a00212c                Chip_Clock_EnableOpts
-                0x1a002168                Chip_Clock_Enable
-                0x1a00219c                Chip_Clock_RTCEnable
-                0x1a0021b4                Chip_Clock_Disable
-                0x1a0021e8                Chip_Clock_StartPowerDown
-                0x1a0021fc                Chip_Clock_ClearPowerDown
-                0x1a002210                Chip_Clock_GetRate
-                0x1a00225c                Chip_Clock_GetEMCRate
-                0x1a00228c                Chip_Clock_SetupPLL
-                0x1a0022cc                Chip_Clock_EnablePLL
-                0x1a0022e0                Chip_Clock_DisablePLL
-                0x1a0022f4                Chip_Clock_GetPLLStatus
- .text          0x1a002300      0x180 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
-                0x1a002300                Chip_SetupCoreClock
-                0x1a002450                Chip_SetupXtalClocking
-                0x1a002464                Chip_SetupIrcClocking
-                0x1a002478                Chip_SystemInit
- .text          0x1a002480       0x84 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/timer_18xx_43xx.o
-                0x1a0024ac                Chip_TIMER_Init
-                0x1a0024b8                Chip_TIMER_DeInit
-                0x1a0024c4                Chip_TIMER_Reset
-                0x1a0024dc                Chip_TIMER_ExtMatchControlSet
- .text          0x1a002504       0x58 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
-                0x1a002504                fpuInit
- .text          0x1a00255c        0x8 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
-                0x1a00255c                Chip_GPIO_Init
-                0x1a002560                Chip_GPIO_DeInit
- .text          0x1a002564       0x7c myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
-                0x1a002564                ResetISR
- .text          0x1a0025e0       0x38 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_aeabi_ldivmod.o)
-                0x1a0025e0                __aeabi_ldivmod
- .text          0x1a002618       0x30 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_aeabi_uldivmod.o)
-                0x1a002618                __aeabi_uldivmod
- .text          0x1a002648       0x60 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(bpabi.o)
-                0x1a002648                __gnu_ldivmod_helper
-                0x1a002678                __gnu_uldivmod_helper
- .text          0x1a0026a8        0x4 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_dvmd_tls.o)
-                0x1a0026a8                __aeabi_ldiv0
-                0x1a0026a8                __aeabi_idiv0
- .text          0x1a0026ac      0x29c /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_divdi3.o)
-                0x1a0026ac                __divdi3
- .text          0x1a002948      0x26c /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_udivdi3.o)
-                0x1a002948                __udivdi3
- .text.memcpy   0x1a002bb4       0x16 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy.o)
-                0x1a002bb4                memcpy
- .text.memset   0x1a002bca       0x10 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memset.o)
-                0x1a002bca                memset
+ .text          0x1a0004b0      0x1b8 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
+                0x1a0004b0                uartConfig
+                0x1a000514                uartReadByte
+                0x1a000558                uartWriteByte
+                0x1a000588                waitForReceiveStringOrTimeout
+                0x1a00060c                waitForReceiveStringOrTimeoutBlocking
+                0x1a000648                uartWriteString
+                0x1a000660                UART2_IRQHandler
+                0x1a000664                UART3_IRQHandler
+ .text          0x1a000668        0x4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_datatypes.o
+                0x1a000668                sAPI_NullFuncPtr
+ .text          0x1a00066c      0x2e8 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
+                0x1a000674                Timer_Init
+                0x1a000780                Timer_DeInit
+                0x1a0007c0                Timer_microsecondsToTicks
+                0x1a0007c8                Timer_EnableCompareMatch
+                0x1a000800                Timer_DisableCompareMatch
+                0x1a000844                Timer_SetCompareMatch
+                0x1a00085c                TIMER0_IRQHandler
+                0x1a000898                TIMER1_IRQHandler
+                0x1a0008d4                TIMER2_IRQHandler
+                0x1a000914                TIMER3_IRQHandler
+ .text          0x1a000954      0x164 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_delay.o
+                0x1a000954                delayInaccurate
+                0x1a0009a8                delayInaccurateUs
+                0x1a000a04                delay
+                0x1a000a3c                delayConfig
+                0x1a000a5c                delayRead
+                0x1a000a9c                delayWrite
+ .text          0x1a000ab8       0xb4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_tick.o
+                0x1a000ab8                tickConfig
+                0x1a000b30                tickRead
+                0x1a000b3c                tickWrite
+                0x1a000b48                SysTick_Handler
+ .text          0x1a000b6c       0x90 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
+                0x1a000b6c                printSetUart
+                0x1a000b70                printConfigUart
+                0x1a000b80                printString
+                0x1a000b88                printEnter
+                0x1a000b98                printIntFormat
+                0x1a000bbc                printUIntFormat
+                0x1a000be0                printHex
+ .text          0x1a000bfc       0xf0 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_board.o
+                0x1a000bfc                boardConfig
+ .text          0x1a000cec      0x1a4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
+                0x1a000cec                int64ToString
+                0x1a000d78                uint64ToString
+                0x1a000dec                uintToAsciiHex
+ .text          0x1a000e90      0x290 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
+                0x1a000ebc                gpioConfig
+                0x1a001058                gpioWrite
+                0x1a0010b0                gpioRead
+                0x1a001108                gpioToggle
+ .text          0x1a001120      0x208 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
+                0x1a001160                Board_UART_Init
+                0x1a001174                Board_Debug_Init
+                0x1a00119c                Board_UARTPutChar
+                0x1a0011b0                Board_UARTGetChar
+                0x1a0011cc                Board_UARTPutSTR
+                0x1a0011e0                Board_LED_Set
+                0x1a001208                Board_LED_Test
+                0x1a001238                Board_LED_Toggle
+                0x1a001250                Board_ENET_GetMacADDR
+                0x1a001274                Board_Init
+                0x1a00129c                Board_I2C_Init
+                0x1a0012c0                Board_SDMMC_Init
+                0x1a0012ec                Board_SSP_Init
+                0x1a001314                Board_DAC_Init
+ .text          0x1a001328       0x1c myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
+                0x1a001328                SystemInit
+ .text          0x1a001344       0xb4 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
+                0x1a001344                Board_SetupMuxing
+                0x1a001378                Board_SetupClocking
+                0x1a0013ec                Board_SystemInit
+ .text          0x1a0013f8      0x3dc myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
+                0x1a00146c                Chip_UART_Init
+                0x1a0014bc                Chip_UART_DeInit
+                0x1a0014d8                Chip_UART_Send
+                0x1a0014fc                Chip_UART_CheckBusy
+                0x1a00150c                Chip_UART_SendBlocking
+                0x1a001530                Chip_UART_Read
+                0x1a001554                Chip_UART_ReadBlocking
+                0x1a001578                Chip_UART_SetBaud
+                0x1a0015bc                Chip_UART_RXIntHandlerRB
+                0x1a0015e0                Chip_UART_TXIntHandlerRB
+                0x1a00161c                Chip_UART_SendRB
+                0x1a001660                Chip_UART_ReadRB
+                0x1a001670                Chip_UART_IRQRBHandler
+                0x1a0016a8                Chip_UART_SetBaudFDR
+                0x1a001790                Chip_UART_GetABEOStatus
+                0x1a00179c                Chip_UART_ABCmd
+ .text          0x1a0017d4      0x184 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
+                0x1a0017d4                RingBuffer_Init
+                0x1a0017e4                RingBuffer_Insert
+                0x1a001814                RingBuffer_InsertMult
+                0x1a0018a4                RingBuffer_Pop
+                0x1a0018d4                RingBuffer_PopMult
+ .text          0x1a001958       0xc4 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
+                0x1a00198c                Chip_USB0_Init
+                0x1a0019c0                Chip_USB1_Init
+                0x1a001a08                SystemCoreClockUpdate
+ .text          0x1a001a1c      0x8e8 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
+                0x1a001c34                Chip_Clock_EnableCrystal
+                0x1a001c80                Chip_Clock_DisableCrystal
+                0x1a001c90                Chip_Clock_SetDivider
+                0x1a001ce4                Chip_Clock_GetDividerSource
+                0x1a001d00                Chip_Clock_GetDividerDivisor
+                0x1a001d1c                Chip_Clock_GetClockInputHz
+                0x1a001dd4                Chip_Clock_CalcMainPLLValue
+                0x1a001e54                Chip_Clock_SetupMainPLLMult
+                0x1a001ef0                Chip_Clock_SetupMainPLLHz
+                0x1a001fac                Chip_Clock_GetMainPLLHz
+                0x1a002038                Chip_Clock_SetBaseClock
+                0x1a00207c                Chip_Clock_GetBaseClockOpts
+                0x1a0020b0                Chip_Clock_EnableBaseClock
+                0x1a0020c8                Chip_Clock_DisableBaseClock
+                0x1a0020e0                Chip_Clock_IsBaseClockEnabled
+                0x1a002100                Chip_Clock_GetBaseClock
+                0x1a002124                Chip_Clock_GetBaseClocktHz
+                0x1a002130                Chip_Clock_EnableOpts
+                0x1a00216c                Chip_Clock_Enable
+                0x1a0021a0                Chip_Clock_RTCEnable
+                0x1a0021b8                Chip_Clock_Disable
+                0x1a0021ec                Chip_Clock_StartPowerDown
+                0x1a002200                Chip_Clock_ClearPowerDown
+                0x1a002214                Chip_Clock_GetRate
+                0x1a002260                Chip_Clock_GetEMCRate
+                0x1a002290                Chip_Clock_SetupPLL
+                0x1a0022d0                Chip_Clock_EnablePLL
+                0x1a0022e4                Chip_Clock_DisablePLL
+                0x1a0022f8                Chip_Clock_GetPLLStatus
+ .text          0x1a002304      0x180 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+                0x1a002304                Chip_SetupCoreClock
+                0x1a002454                Chip_SetupXtalClocking
+                0x1a002468                Chip_SetupIrcClocking
+                0x1a00247c                Chip_SystemInit
+ .text          0x1a002484       0x84 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/timer_18xx_43xx.o
+                0x1a0024b0                Chip_TIMER_Init
+                0x1a0024bc                Chip_TIMER_DeInit
+                0x1a0024c8                Chip_TIMER_Reset
+                0x1a0024e0                Chip_TIMER_ExtMatchControlSet
+ .text          0x1a002508       0x58 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
+                0x1a002508                fpuInit
+ .text          0x1a002560        0x8 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
+                0x1a002560                Chip_GPIO_Init
+                0x1a002564                Chip_GPIO_DeInit
+ .text          0x1a002568       0x7c myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
+                0x1a002568                ResetISR
+ .text          0x1a0025e4       0x38 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_aeabi_ldivmod.o)
+                0x1a0025e4                __aeabi_ldivmod
+ .text          0x1a00261c       0x30 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_aeabi_uldivmod.o)
+                0x1a00261c                __aeabi_uldivmod
+ .text          0x1a00264c       0x60 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(bpabi.o)
+                0x1a00264c                __gnu_ldivmod_helper
+                0x1a00267c                __gnu_uldivmod_helper
+ .text          0x1a0026ac        0x4 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_dvmd_tls.o)
+                0x1a0026ac                __aeabi_ldiv0
+                0x1a0026ac                __aeabi_idiv0
+ .text          0x1a0026b0      0x29c /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_divdi3.o)
+                0x1a0026b0                __divdi3
+ .text          0x1a00294c      0x26c /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_udivdi3.o)
+                0x1a00294c                __udivdi3
+ .text.memcpy   0x1a002bb8       0x16 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy.o)
+                0x1a002bb8                memcpy
+ .text.memset   0x1a002bce       0x10 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memset.o)
+                0x1a002bce                memset
  *(.rodata .rodata.* .constdata .constdata.*)
- *fill*         0x1a002bda        0x2 
- .rodata        0x1a002bdc        0x8 myProject/out/myProject/src/sAPI_program.o
+ *fill*         0x1a002bde        0x2 
+ .rodata        0x1a002be0       0x10 myProject/out/myProject/src/sAPI_program.o
  .rodata.str1.4
-                0x1a002be4       0x36 myProject/out/myProject/src/sAPI_program.o
+                0x1a002bf0       0x36 myProject/out/myProject/src/sAPI_program.o
                                  0x38 (size before relaxing)
- *fill*         0x1a002c1a        0x2 
- .rodata        0x1a002c1c       0x30 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
+ *fill*         0x1a002c26        0x2 
+ .rodata        0x1a002c28       0x30 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
  .rodata.str1.4
-                0x1a002c4c        0x3 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
+                0x1a002c58        0x3 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
                                   0x4 (size before relaxing)
- *fill*         0x1a002c4f        0x1 
+ *fill*         0x1a002c5b        0x1 
  .rodata.str1.4
-                0x1a002c50       0x59 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
+                0x1a002c5c       0x59 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
                                  0x5c (size before relaxing)
- *fill*         0x1a002ca9        0x3 
- .rodata        0x1a002cac      0x138 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
-                0x1a002cac                gpioPinsConfig
- .rodata        0x1a002de4       0x1c myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
-                0x1a002df8                OscRateIn
-                0x1a002dfc                ExtRateIn
- .rodata        0x1a002e00       0x6c myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
- .rodata        0x1a002e6c       0x10 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
- .rodata        0x1a002e7c       0x14 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
- .rodata        0x1a002e90       0x70 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
+ *fill*         0x1a002cb5        0x3 
+ .rodata        0x1a002cb8      0x138 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
+                0x1a002cb8                gpioPinsConfig
+ .rodata        0x1a002df0       0x1c myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
+                0x1a002e04                OscRateIn
+                0x1a002e08                ExtRateIn
+ .rodata        0x1a002e0c       0x6c myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
+ .rodata        0x1a002e78       0x10 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .rodata        0x1a002e88       0x14 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .rodata        0x1a002e9c       0x70 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
  .rodata.str1.4
-                0x1a002f00        0x8 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
- .rodata        0x1a002f08       0x48 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
-                0x1a002f50                . = ALIGN (0x4)
+                0x1a002f0c        0x8 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .rodata        0x1a002f14       0x48 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+                0x1a002f5c                . = ALIGN (0x4)
 
-.glue_7         0x1a002f50        0x0
+.glue_7         0x1a002f5c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x1a002f50        0x0
+.glue_7t        0x1a002f5c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x1a002f50        0x0
+.vfp11_veneer   0x1a002f5c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x1a002f50        0x0
+.v4_bx          0x1a002f5c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x1a002f50        0x0
+.iplt           0x1a002f5c        0x0
  .iplt          0x00000000        0x0 myProject/out/myProject/src/sAPI_program.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x1a002f50                __exidx_start = .
+                0x1a002f5c                __exidx_start = .
 
-.ARM.exidx      0x1a002f50        0x8
+.ARM.exidx      0x1a002f5c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x1a002f50        0x8 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_divdi3.o)
- .ARM.exidx     0x1a002f58        0x0 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x1a002f5c        0x8 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_divdi3.o)
+ .ARM.exidx     0x1a002f64        0x0 /root/ciaa-ide/gcc-arm-none-eabi-4_9-2015q1/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a(_udivdi3.o)
                                   0x8 (size before relaxing)
-                0x1a002f58                __exidx_end = .
-                0x1a002f58                _etext = .
+                0x1a002f64                __exidx_end = .
+                0x1a002f64                _etext = .
 
-.rel.dyn        0x1a002f58        0x0
+.rel.dyn        0x1a002f64        0x0
  .rel.iplt      0x00000000        0x0 myProject/out/myProject/src/sAPI_program.o
 
-.data_RAM2      0x10080000        0x0 load address 0x1a002f58
+.data_RAM2      0x10080000        0x0 load address 0x1a002f64
  FILL mask 0xff
  *(.ramfunc.$RAM2)
  *(.ramfunc.$RamLoc40)
@@ -8777,7 +8777,7 @@ END GROUP
  *(.data.$RamLoc40*)
                 0x10080000                . = ALIGN (0x4)
 
-.data_RAM3      0x20000000        0x0 load address 0x1a002f58
+.data_RAM3      0x20000000        0x0 load address 0x1a002f64
  FILL mask 0xff
  *(.ramfunc.$RAM3)
  *(.ramfunc.$RamAHB32)
@@ -8785,7 +8785,7 @@ END GROUP
  *(.data.$RamAHB32*)
                 0x20000000                . = ALIGN (0x4)
 
-.data_RAM4      0x20008000        0x0 load address 0x1a002f58
+.data_RAM4      0x20008000        0x0 load address 0x1a002f64
  FILL mask 0xff
  *(.ramfunc.$RAM4)
  *(.ramfunc.$RamAHB16)
@@ -8793,7 +8793,7 @@ END GROUP
  *(.data.$RamAHB16*)
                 0x20008000                . = ALIGN (0x4)
 
-.data_RAM5      0x2000c000        0x0 load address 0x1a002f58
+.data_RAM5      0x2000c000        0x0 load address 0x1a002f64
  FILL mask 0xff
  *(.ramfunc.$RAM5)
  *(.ramfunc.$RamAHB_ETB16)
@@ -8807,7 +8807,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000       0x5c load address 0x1a002f58
+.data           0x10000000       0x5c load address 0x1a002f64
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -8821,7 +8821,7 @@ END GROUP
                 0x1000005c                . = ALIGN (0x4)
                 0x1000005c                _edata = .
 
-.igot.plt       0x1000005c        0x0 load address 0x1a002fb4
+.igot.plt       0x1000005c        0x0 load address 0x1a002fc0
  .igot.plt      0x00000000        0x0 myProject/out/myProject/src/sAPI_program.o
 
 .bss_RAM2       0x10080000        0x0
@@ -8896,7 +8896,7 @@ END GROUP
                 0x100000e4                _end_noinit = .
                 0x100000e4                PROVIDE (_pvHeapStart, .)
                 0x10008000                PROVIDE (_vStackTop, (__top_RamLoc32 - 0x0))
-                0x53ff5302                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+                0x53ff52fe                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(myProject/out/myProject.elf elf32-littlearm)
 
 .debug_info     0x00000000     0xd9a7
@@ -9017,117 +9017,117 @@ OUTPUT(myProject/out/myProject.elf elf32-littlearm)
  .debug_aranges
                 0x000002c0       0x80 myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
 
-.debug_macro    0x00000000     0x9914
- .debug_macro   0x00000000      0x51c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000051c      0x880 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00000d9c       0x22 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00000dbe       0x44 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00000e02       0x1c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00000e1e      0x1f7 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00001015       0x10 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00001025       0x22 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00001047       0x73 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000010ba       0x28 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000010e2       0x3b myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000111d       0x2d myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000114a       0x42 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000118c      0xd39 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00001ec5      0x2c3 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00002188      0x112 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000229a       0x11 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000022ab       0x2a myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000022d5       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000022eb      0x2e6 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000025d1       0x82 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00002653      0x13d myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00002790      0x198 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00002928       0x34 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000295c       0x58 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000029b4      0x236 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00002bea      0x572 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000315c       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003172      0x18a myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000032fc       0x88 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003384      0x1b9 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000353d      0x1da myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003717       0x40 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003757       0x1c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003773       0x2e myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000037a1       0x2e myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000037cf       0x22 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000037f1      0x201 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000039f2       0xe0 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003ad2      0x34c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003e1e       0xdc myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003efa       0xc4 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00003fbe       0x8f myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000404d       0x94 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000040e1       0xb8 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004199       0x4c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000041e5       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000041fb      0x328 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004523       0x3a myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000455d       0xd0 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000462d       0x18 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004645       0x22 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004667       0x40 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000046a7       0x4c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000046f3       0x58 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000474b       0x35 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004780       0x9c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000481c       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004832       0x97 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000048c9      0x29d myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004b66       0xef myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004c55       0x10 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004c65       0x52 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004cb7       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004ccd       0x43 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004d10      0x180 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004e90       0x10 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004ea0       0x22 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004ec2       0xbd myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004f7f       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00004f95      0x196 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000512b       0x20 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000514b       0x1c myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00005167       0x16 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x0000517d       0x3a myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000051b7       0x40 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000051f7       0x70 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00005267       0x6a myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000052d1       0x22 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x000052f3       0x10 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00005303       0x70 myProject/out/myProject/src/sAPI_program.o
- .debug_macro   0x00005373      0x446 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
- .debug_macro   0x000057b9       0x10 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
- .debug_macro   0x000057c9       0x16 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
- .debug_macro   0x000057df       0x35 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
- .debug_macro   0x00005814      0x3fa myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_datatypes.o
- .debug_macro   0x00005c0e      0x41a myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
- .debug_macro   0x00006028      0x413 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_delay.o
- .debug_macro   0x0000643b      0x40a myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_tick.o
- .debug_macro   0x00006845      0x434 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
- .debug_macro   0x00006c79       0x3a myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
- .debug_macro   0x00006cb3      0x422 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_board.o
- .debug_macro   0x000070d5      0x404 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
- .debug_macro   0x000074d9      0x40e myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
- .debug_macro   0x000078e7      0x40e myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
- .debug_macro   0x00007cf5       0x46 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
- .debug_macro   0x00007d3b      0x3f1 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
- .debug_macro   0x0000812c      0x3f1 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
- .debug_macro   0x0000851d      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_macro   0x00008810      0x120 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
- .debug_macro   0x00008930       0x10 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
- .debug_macro   0x00008940       0x10 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
- .debug_macro   0x00008950      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_macro   0x00008c43      0x2f9 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_macro   0x00008f3c      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_macro   0x0000922f      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/timer_18xx_43xx.o
- .debug_macro   0x00009522       0xcb myProject/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
- .debug_macro   0x000095ed      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_macro   0x000098e0       0x17 myProject/out/libs/vendor_libs/lpc_startup/src/crp.o
- .debug_macro   0x000098f7       0x1d myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
+.debug_macro    0x00000000     0x991a
+ .debug_macro   0x00000000      0x522 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00000522      0x880 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00000da2       0x22 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00000dc4       0x44 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00000e08       0x1c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00000e24      0x1f7 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000101b       0x10 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000102b       0x22 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000104d       0x73 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000010c0       0x28 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000010e8       0x3b myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00001123       0x2d myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00001150       0x42 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00001192      0xd39 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00001ecb      0x2c3 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000218e      0x112 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000022a0       0x11 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000022b1       0x2a myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000022db       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000022f1      0x2e6 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000025d7       0x82 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00002659      0x13d myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00002796      0x198 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000292e       0x34 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00002962       0x58 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000029ba      0x236 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00002bf0      0x572 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003162       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003178      0x18a myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003302       0x88 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000338a      0x1b9 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003543      0x1da myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000371d       0x40 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000375d       0x1c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003779       0x2e myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000037a7       0x2e myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000037d5       0x22 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000037f7      0x201 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000039f8       0xe0 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003ad8      0x34c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003e24       0xdc myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003f00       0xc4 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00003fc4       0x8f myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004053       0x94 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000040e7       0xb8 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000419f       0x4c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000041eb       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004201      0x328 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004529       0x3a myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004563       0xd0 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004633       0x18 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000464b       0x22 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000466d       0x40 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000046ad       0x4c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000046f9       0x58 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004751       0x35 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004786       0x9c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004822       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004838       0x97 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000048cf      0x29d myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004b6c       0xef myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004c5b       0x10 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004c6b       0x52 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004cbd       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004cd3       0x43 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004d16      0x180 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004e96       0x10 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004ea6       0x22 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004ec8       0xbd myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004f85       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00004f9b      0x196 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00005131       0x20 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00005151       0x1c myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000516d       0x16 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00005183       0x3a myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000051bd       0x40 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000051fd       0x70 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x0000526d       0x6a myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000052d7       0x22 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x000052f9       0x10 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00005309       0x70 myProject/out/myProject/src/sAPI_program.o
+ .debug_macro   0x00005379      0x446 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
+ .debug_macro   0x000057bf       0x10 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
+ .debug_macro   0x000057cf       0x16 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
+ .debug_macro   0x000057e5       0x35 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
+ .debug_macro   0x0000581a      0x3fa myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_datatypes.o
+ .debug_macro   0x00005c14      0x41a myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
+ .debug_macro   0x0000602e      0x413 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_delay.o
+ .debug_macro   0x00006441      0x40a myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_tick.o
+ .debug_macro   0x0000684b      0x434 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
+ .debug_macro   0x00006c7f       0x3a myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
+ .debug_macro   0x00006cb9      0x422 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_board.o
+ .debug_macro   0x000070db      0x404 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
+ .debug_macro   0x000074df      0x40e myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
+ .debug_macro   0x000078ed      0x40e myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
+ .debug_macro   0x00007cfb       0x46 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
+ .debug_macro   0x00007d41      0x3f1 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
+ .debug_macro   0x00008132      0x3f1 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
+ .debug_macro   0x00008523      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_macro   0x00008816      0x120 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
+ .debug_macro   0x00008936       0x10 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
+ .debug_macro   0x00008946       0x10 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
+ .debug_macro   0x00008956      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_macro   0x00008c49      0x2f9 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_macro   0x00008f42      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_macro   0x00009235      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/timer_18xx_43xx.o
+ .debug_macro   0x00009528       0xcb myProject/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
+ .debug_macro   0x000095f3      0x2f3 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_macro   0x000098e6       0x17 myProject/out/libs/vendor_libs/lpc_startup/src/crp.o
+ .debug_macro   0x000098fd       0x1d myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
 
 .debug_line     0x00000000     0xa2f6
  .debug_line    0x00000000      0x989 myProject/out/myProject/src/sAPI_program.o
@@ -9154,52 +9154,52 @@ OUTPUT(myProject/out/myProject.elf elf32-littlearm)
  .debug_line    0x0000a193       0x47 myProject/out/libs/vendor_libs/lpc_startup/src/crp.o
  .debug_line    0x0000a1da      0x11c myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
 
-.debug_str      0x00000000    0x1bf2c
- .debug_str     0x00000000    0x195a2 myProject/out/myProject/src/sAPI_program.o
-                              0x19813 (size before relaxing)
- .debug_str     0x000195a2      0x3e2 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
+.debug_str      0x00000000    0x1bf3b
+ .debug_str     0x00000000    0x195b1 myProject/out/myProject/src/sAPI_program.o
+                              0x19822 (size before relaxing)
+ .debug_str     0x000195b1      0x3e2 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_uart.o
                               0x17d7d (size before relaxing)
- .debug_str     0x00019984       0x3c myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_datatypes.o
+ .debug_str     0x00019993       0x3c myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_datatypes.o
                               0x178b4 (size before relaxing)
- .debug_str     0x000199c0      0x7ce myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
+ .debug_str     0x000199cf      0x7ce myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_timer.o
                               0x18afc (size before relaxing)
- .debug_str     0x0001a18e       0x86 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_delay.o
+ .debug_str     0x0001a19d       0x86 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_delay.o
                               0x179a7 (size before relaxing)
- .debug_str     0x0001a214       0xe9 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_tick.o
+ .debug_str     0x0001a223       0xe9 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_tick.o
                               0x187e3 (size before relaxing)
- .debug_str     0x0001a2fd       0xdc myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
+ .debug_str     0x0001a30c       0xdc myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_print.o
                               0x17d8f (size before relaxing)
- .debug_str     0x0001a3d9       0xc4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_board.o
+ .debug_str     0x0001a3e8       0xc4 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_board.o
                               0x17b0b (size before relaxing)
- .debug_str     0x0001a49d       0x55 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
+ .debug_str     0x0001a4ac       0x55 myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_convert.o
                               0x17944 (size before relaxing)
- .debug_str     0x0001a4f2      0x13e myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
+ .debug_str     0x0001a501      0x13e myProject/out/libs/sapi/sapi_r0.5.0/src/sapi_gpio.o
                               0x186c3 (size before relaxing)
- .debug_str     0x0001a630      0x635 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
+ .debug_str     0x0001a63f      0x635 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
                               0x18ad9 (size before relaxing)
- .debug_str     0x0001ac65       0x67 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
+ .debug_str     0x0001ac74       0x67 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
                               0x1789f (size before relaxing)
- .debug_str     0x0001accc      0x261 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
+ .debug_str     0x0001acdb      0x261 myProject/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
                               0x1867f (size before relaxing)
- .debug_str     0x0001af2d      0x3ba myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_str     0x0001af3c      0x3ba myProject/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
                               0x15591 (size before relaxing)
- .debug_str     0x0001b2e7       0xf5 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
+ .debug_str     0x0001b2f6       0xf5 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/ring_buffer.o
                                0x5852 (size before relaxing)
- .debug_str     0x0001b3dc      0x15d myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_str     0x0001b3eb      0x15d myProject/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
                               0x154ee (size before relaxing)
- .debug_str     0x0001b539      0x4eb myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_str     0x0001b548      0x4eb myProject/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
                               0x15957 (size before relaxing)
- .debug_str     0x0001ba24       0xbf myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_str     0x0001ba33       0xbf myProject/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
                               0x153e2 (size before relaxing)
- .debug_str     0x0001bae3      0x11a myProject/out/libs/vendor_libs/lpc_chip_43xx/src/timer_18xx_43xx.o
+ .debug_str     0x0001baf2      0x11a myProject/out/libs/vendor_libs/lpc_chip_43xx/src/timer_18xx_43xx.o
                               0x14bed (size before relaxing)
- .debug_str     0x0001bbfd       0xc9 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
+ .debug_str     0x0001bc0c       0xc9 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
                                0x8c4c (size before relaxing)
- .debug_str     0x0001bcc6       0x45 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_str     0x0001bcd5       0x45 myProject/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
                               0x146e3 (size before relaxing)
- .debug_str     0x0001bd0b       0x46 myProject/out/libs/vendor_libs/lpc_startup/src/crp.o
+ .debug_str     0x0001bd1a       0x46 myProject/out/libs/vendor_libs/lpc_startup/src/crp.o
                                0x24aa (size before relaxing)
- .debug_str     0x0001bd51      0x1db myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
+ .debug_str     0x0001bd60      0x1db myProject/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
                                0x2680 (size before relaxing)
 
 .comment        0x00000000       0x70
