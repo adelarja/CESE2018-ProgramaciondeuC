@@ -65,7 +65,7 @@ delay_t toggleDelay;
 
 /*==================[declaraciones de funciones internas]====================*/
 char getOut(estado);/*Función para obtener el valor de la salida correspondiente al estado*/
-void getWork(bool_t, estado[], char *st);/*Función para hacer funcionar la máquina de estados de acuerdo a la entrada*/
+void getWork(bool_t, estado[], char *st, delay_t *);/*Función para hacer funcionar la máquina de estados de acuerdo a la entrada*/
 
 bool_t delayStart(delay_t *, uint16_t);
 void toggleDelayed(gpioMap_t *, uint16_t);
@@ -105,7 +105,7 @@ int main( void ){
    // ---------- REPETIR POR SIEMPRE --------------------------
    while( TRUE )
    {
-	  getWork(gpioRead( TEC1 ), FSM, &cState1);
+	  getWork(gpioRead( TEC1 ), FSM, &cState1, &delayTec1);
 
 	  // Si el switch 1 se presiona, cambio frecuencia de delay
 	  if(getOut(FSM[cState1]) == OUTON){
@@ -122,7 +122,7 @@ int main( void ){
 	  }
       /* Si se presiona TEC2, cambio el color del led que titila dentro de una array */
 
-	  getWork(gpioRead( TEC2 ), FSM, &cState2);
+	  getWork(gpioRead( TEC2 ), FSM, &cState2, &delayTec2);
 
 	  if(getOut(FSM[cState2]) == OUTON){ //Si se presiona el switch 2, cambio el led de blink
 		  if(!tec2Value){
@@ -155,10 +155,10 @@ char getOut(estado st){
 	return st.out;
 }
 
-void getWork(bool_t input, estado FSM[], char *cSt){
+void getWork(bool_t input, estado FSM[], char *cSt, delay_t *delayTec){
 
-	//delay(FSM[cState].delay);
-	*cSt = FSM[*cSt].next[input];
+	if(delayStart(delayTec, FSM[*cSt].delay))
+		*cSt = FSM[*cSt].next[input];
 
 }
 
